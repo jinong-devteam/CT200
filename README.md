@@ -53,5 +53,8 @@ if __name__ == '__main__':
     print temperatures
 ```
 
-예제를 실행하고자 할때는 본 라이브러리의 폴더에서 테스트 해야합니다. 그렇지 않은 경우 PYTHONPATH 환경변수를 설정하거나 본 라이브러리를 PYTHON의 라이브러리 폴더로 복사해야 합니다.
+예제를 실행하고자 할때는 본 라이브러리의 폴더에서 테스트 해야한다. 그렇지 않은 경우 다운로드된 경로를 PYTHONPATH 환경변수에 추가하여 사용할 수 있다. 만약 /home/jinong/ct200 에 다운로드를 했다면 다음과 같이 설정하면 된다.
+```
+export PYTHONPATH=$PYTHONPATH:/home/jinong/ct200
+```
 
