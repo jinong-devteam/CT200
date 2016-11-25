@@ -29,7 +29,7 @@ CT200을 사용하기 위해서 먼저 알아야할 것들이 2가지 있다.
 1. CT200에 할당된 아이디 : 디폴트로 1로 설정되어 있다.
 2. CT200이 연결된 포트 : USB 컨버터를 사용한다면 /dev/ttyUSB0 과 같이 잡힌다.
 
-위의 두가지 값을 알고 있다면 다음과 같이 [readtemperature() 메소드](https://jinong-devteam.github.io/CT200/ct200.html#ct200.ct200.CT200.readtemperature)로 현재 온도값을 획득할 수 있다.
+위의 두가지 값을 알고 있다면 다음과 같이 [readtemperature()](https://jinong-devteam.github.io/CT200/ct200.html#ct200.ct200.CT200.readtemperature) 메소드로 현재 온도값을 획득할 수 있다.
 예제에서 사용된 CT200의 아이디는 1이고, 연결된 포트는 /dev/ttyUSB0 이다. 
 ```
 from ct200.ct200 import CT200
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     print temperatures
 ```
 
-2개 이상의 CT200을 사용하는 경우라면 다음과 같이 [readalltemperature() 메소드](https://jinong-devteam.github.io/CT200/ct200.html#ct200.ct200.CT200.readalltemperature)를 사용할 수 있다.
+2개 이상의 CT200을 사용하는 경우라면 다음과 같이 [readalltemperature()](https://jinong-devteam.github.io/CT200/ct200.html#ct200.ct200.CT200.readalltemperature) 메소드를 사용할 수 있다.
 예제에서 사용된 CT200은 2개이며, 아이디가 각각 1, 2 이다.
 ```
 from ct200.ct200 import CT200
