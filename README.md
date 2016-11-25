@@ -29,7 +29,7 @@ CT200을 사용하기 위해서 먼저 알아야할 것들이 2가지 있다.
 1. CT200에 할당된 아이디 : 디폴트로 1로 설정되어 있다.
 2. CT200이 연결된 포트 : USB 컨버터를 사용한다면 /dev/ttyUSB0 과 같이 잡힌다.
 
-위의 두가지 값을 알고 있다면 다음과 같이 간단하게 현재 온도값을 획득할 수 있다.
+위의 두가지 값을 알고 있다면 다음과 같이 [readtemperature() 메소드](https://jinong-devteam.github.io/CT200/ct200.html#ct200.ct200.CT200.readtemperature)로 현재 온도값을 획득할 수 있다.
 예제에서 사용된 CT200의 아이디는 1이고, 연결된 포트는 /dev/ttyUSB0 이다. 
 ```
 from ct200.ct200 import CT200
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     print temperatures
 ```
 
-2개 이상의 CT200을 사용하는 경우라면 다음과 같이 사용할 수 있다.
+2개 이상의 CT200을 사용하는 경우라면 다음과 같이 [readalltemperature() 메소드](https://jinong-devteam.github.io/CT200/ct200.html#ct200.ct200.CT200.readalltemperature)를 사용할 수 있다.
 예제에서 사용된 CT200은 2개이며, 아이디가 각각 1, 2 이다.
 ```
 from ct200.ct200 import CT200
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 export PYTHONPATH=$PYTHONPATH:/home/jinong/ct200
 ```
 
-조금 복잡하게 사용하고 싶다면 다음 예제를 확인해보자. 짧은 주기(매 5초)로 온도를 측정하여, 일정 시간 (예를 들어 1분) 평균값을 저장하고 싶다고 하면, 다음과 같은 코드를 작성할 수 있다. getallaverage() 메소드는 내부적으로 저장되어 있는 온도값들을 평균내어 보여준다. clearall() 메소드를 사용하면 내부적으로 저장된 온도값을 삭제한다.
+조금 복잡하게 사용하고 싶다면 다음 예제를 확인해보자. 짧은 주기(매 5초)로 온도를 측정하여, 일정 시간 (예를 들어 1분) 평균값을 저장하고 싶다고 하면, 다음과 같은 코드를 작성할 수 있다. [getallaverage()](https://jinong-devteam.github.io/CT200/ct200.html#ct200.ct200.CT200.getallaverage) 메소드는 내부적으로 저장되어 있는 온도값들을 평균내어 보여준다. [clearall()](https://jinong-devteam.github.io/CT200/ct200.html#ct200.ct200.CT200.clearall) 메소드를 사용하면 내부적으로 저장된 온도값을 삭제한다.
 
 ```
 from ct200.ct200 import CT200
@@ -79,3 +79,5 @@ if __name__ == '__main__':
 ```
 
 위의 예에서 2개의 센서가 /dev/ttyUSB0에 연결되어 있으며, 아이디는 각각 1, 2 이다. (사실 위의 코드는 시간이 조금씩 늘어지며 동작하게 된다. 이는 CT200에서 온도를 획득하고, 전송하는데 걸리는 지연시간이 있기 때문이다. [CT200 데이터 시트](http://diwellhome.cafe24.com/web/data/diwell/CT-200-485/CT-200-485_Spec_V1.1.pdf) 참고)
+
+더 자세한 사항은 [레퍼런스 문서](https://jinong-devteam.github.io/CT200) 를 참고한다.
