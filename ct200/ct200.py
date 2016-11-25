@@ -19,7 +19,7 @@
 * http://diwell.com/product/detail.html?product_no=39&cate_no=24&display_group=1
 
 작성자
-============
+======
 * JoonYong (joonyong.jinong@gmail.com)
 """
 
@@ -31,42 +31,11 @@ import struct
 import enum
 
 class CT200(object):
-    """
-    CT200 적외선 온도센서의 RS485 프로토콜을 구현한 클래스
-    _로 시작하는 메소드는 private 로 간주하고, all 이 붙어있는 메소드는 연결된 전체 센서에 대한 명령으로 이해하면 된다.
+    """\
+    CT200 적외선 온도센서의 RS485 프로토콜을 구현한 클래스이다.
+    _로 시작하는 메소드는 private 로 간주하고,
+    all 이 붙어있는 메소드는 연결된 전체 센서에 대한 명령으로 이해하면 된다.
 
-    Attributes
-    ----------
-    retry : integer
-        통신 실패시 재시도 회수
-    ser : Serial
-        시리얼 통신을 위한 pyserial 인스턴스
-    devices : list
-        연결된 장비아이디와 측정치 저장을 위한 임시버퍼
-
-    Methods
-    -------
-    clearall()
-        내부적으로 측정치 평균을 내기 위해 들고 있는 내부 임시 버퍼값을 모두 삭제한다.
-    clear(devid)
-        특정 장비아이디(devid)를 가진 센서의 내부 임시 버퍼값을 삭제한다.
-    getallaverage()
-        내부 임시 버퍼값을 이용하여 센서별 평균치를 계산해준다.
-    getaverage(devid)
-        특정 장비아이디(devid)를 가진 센서의 평균치를 계산해준다.
-    readalltemperature()
-        모든 장비로 부터 순차적으로 온도정보를 읽어옵니다.
-    readtemperature(devid)
-        특정 장비아이디(devid)를 가진 센서의 온도정보를 읽어옵니다.
-    writeid(devid)
-        연결된 장비에 입력된 아이디(devid)를 배정합니다. 주의) 여러장비가 연결되어 있으면 안됩니다.
-    setemissivity(emissivity)
-        장비에 방사율을 설정합니다. 0.01에서 0.99까지 설정이 가능합니다.
-    getemissivity(devid)
-        특정 장비아이디(devid)를 가진 센서의 방사율을 읽어옵니다.
-
-    예제
-    -----
         >>> config = {"tty" : "/dev/ttyUSB0", "id" : [1, 2], "retry" : 3}
         sensor = CT200 (config)
         print sensor.readalltemperature ()
@@ -77,12 +46,14 @@ class CT200(object):
     DEFAULT_BAUDRATE = 19200
 
     def __init__(self, config):
-        """
+        """\
         클래스 생성자로 딕셔너리형식의 설정을 인자로 한다.
 
-        :param config["tty"]: RS485 통신을 위한 포트
-        :param config["id"]: 연결된 적외선 온도센서의 아이디 리스트
-        :param config["retry"]: 통신실패시 재시도 회수
+        :param config: CT200 센서를 위한 설정
+
+        config["tty"] -- RS485 통신을 위한 포트
+        config["id"] --  연결된 적외선 온도센서의 아이디 리스트
+        config["retry"] --  통신실패시 재시도 회수
 
         >>> config = {"tty" : "/dev/ttyUSB0", "id" : [1, 2], "retry" : 3}
 
@@ -127,8 +98,9 @@ class CT200(object):
         return 8
 
     def _getdevice(self, devid):
-        """
+        """\
         내부 버퍼에 저장된 장비에 관한 정보를 읽어온다.
+
         :param devid: 장비아이디
         """
         for device in self.devices:
@@ -147,6 +119,7 @@ class CT200(object):
     def clear(self, devid):
         """
         특정 장비아이디(devid)를 가진 센서의 내부 임시 버퍼값을 삭제한다.
+
         :param devid: 장비아이디
         """
         device = self._getdevice(devid)
@@ -164,8 +137,9 @@ class CT200(object):
         return ret
 
     def getaverage(self, devid):
-        """
+        """\
         특정 장비아이디(devid)를 가진 센서의 평균치를 계산해준다.
+
         :param devid: 장비아이디
         :return: 평균 온도값
         """
@@ -190,8 +164,9 @@ class CT200(object):
         return ret
 
     def readtemperature(self, devid):
-        """
+        """\
         특정 장비아이디(devid)를 가진 센서의 온도정보를 읽어옵니다.
+
         :param devid: 장비아이디
         :return: 성공시 읽어온 온도값, 없는 장비아이디이거나 실패시 None
         """
@@ -221,8 +196,9 @@ class CT200(object):
         return None
 
     def writeid(self, devid):
-        """
+        """\
         연결된 장비에 입력된 아이디(devid)를 배정합니다. 주의) 여러장비가 연결되어 있으면 안됩니다.
+
         :param devid: 장비아이디
         :return: 성공시 true, 실패시 false
         """
@@ -246,8 +222,9 @@ class CT200(object):
         return False
 
     def setemissivity(self, emissivity):
-        """
+        """\
         장비에 방사율을 설정합니다.
+
         :param emissivity: 방사율 값으로 0.01에서 0.99까지 설정이 가능합니다.
         :return: 성공하면 true, 실패하거나 방사율값이 범위를 벗어나면 false
         """
@@ -276,8 +253,9 @@ class CT200(object):
         return False
 
     def getemissivity(self, devid):
-        """
+        """\
         특정 장비아이디(devid)를 가진 센서의 방사율을 읽어옵니다.
+
         :param devid: 장비아이디
         :return: 성공시 방사율, 없는 장비아이디이거나 실패시 None
         """
