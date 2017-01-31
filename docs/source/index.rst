@@ -1,10 +1,10 @@
-.. CT200 documentation master file, created by
-   sphinx-quickstart on Fri Nov 25 15:21:21 2016.
+.. python-jinong-sensor-library documentation master file, created by
+   sphinx-quickstart on Tue Jan 31 09:38:40 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to CT200's documentation!
-=================================
+Welcome to python-jinong-sensor-library's documentation!
+========================================================
 
 Contents:
 
