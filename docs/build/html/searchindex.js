@@ -1,1 +1,0 @@
-Search.setIndex({envversion:49,filenames:["index"],objects:{},objnames:{},objtypes:{},terms:{content:0,index:0,modul:0,page:0,search:0},titles:["Welcome to python-jinong-sensor-library&#8217;s documentation!"],titleterms:{document:0,indice:0,jinong:0,librari:0,python:0,sensor:0,tabl:0,welcom:0}})
