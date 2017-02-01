@@ -92,8 +92,8 @@ class K30(object):
         self.ser.flush ()
         time.sleep(.01)
         resp = self.ser.read(8)
-        bytearr = array.array("B", resp)
-        print bytearr
+        #bytearr = array.array("B", resp)
+        #print bytearr
         high = ord(resp[3])
         low = ord(resp[4])
         status = (high * 256) + low
@@ -107,8 +107,8 @@ class K30(object):
         self.ser.flush ()
         time.sleep(.01)
         resp = self.ser.read(8)
-        bytearr = array.array("B", resp)
-        print bytearr
+        #bytearr = array.array("B", resp)
+        #print bytearr
         high = ord(resp[3])
         low = ord(resp[4])
         co2 = (high * 256) + low
@@ -120,8 +120,6 @@ if __name__ == '__main__':
     sensor = K30(TMPCONFIG)
 
     print sensor.readstatus()
-    print sensor.readCO2()
-    print sensor.readCO2()
     print sensor.readCO2()
     print sensor.readCO2()
     print sensor.getaverage()
