@@ -4,7 +4,7 @@
 # Copyright (C) 2016 JiNong Inc. All right reserved.
 #
 
-from ct200.ct200 import CT200
+from pyjns.ct200 import CT200
   
 if __name__ == '__main__':
     config = {"tty" : "/dev/ttyUSB0", "id" : [1, 2], "retry" : 1}
