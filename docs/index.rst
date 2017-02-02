@@ -11,6 +11,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   pyjns.ct200
+   pyjns.k30
+   pyjns.ux100
+
 
 
 Indices and tables
