@@ -2,7 +2,7 @@
 
 ## Introduction
 
-본 라이브러리는 (주)지농에서 사용하는 몇몇 시리얼 타입 센서들에 대한 파이썬 라이브러리 모음이다.  
+본 라이브러리는 주식회사 지농에서 사용하는 몇몇 시리얼 타입 센서들에 대한 파이썬 라이브러리 모음이다.  
 현재 지원하는 센서는 3가지로 다음과 같다.
 * CT200 : 디웰전자의 적외선 온도센서 [링크](http://www.diwell.com/product/detail.html?product_no=39&cate_no=24&display_group=1)
 * K30 : SenseAir 사의 이산화탄소농도 센서
